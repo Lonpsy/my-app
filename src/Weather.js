@@ -21,7 +21,26 @@ export default function Weather() {
             />
           </div>
         </div>
-      </form>
+      </form>{" "}
+      <h1 className="col-3 mt-3">London</h1>{" "}
+      <ul className="col-3">
+        <li>Monday 10:00am</li>
+        <li>Sunny </li>
+      </ul>
+      <ul className="row">
+        <li className="col-3">
+          {" "}
+          <img
+            src="https://www.gstatic.com/weather/conditions/v1/svg/partly_cloudy_light.svg"
+            alt="weather-emoji"
+          />{" "}
+          <h2 className="col-6">13°C</h2>
+        </li>{" "}
+        <div className="col 9 ">
+          <div>Precipitation: 3%</div> <div>Humidity: 36%</div>{" "}
+          <div>Wind: 3 m/s</div>
+        </div>
+      </ul>
     </div>
   );
 }
