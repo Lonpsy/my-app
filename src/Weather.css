@@ -1,3 +1,8 @@
+:main {
+  font: -- rgba(64, 58, 64, 0.6);
+  background-color: -- rgb(96, 8, 105, 0.8);
+}
+
 .WeatherArea {
   background-color: rgb(233, 236, 238);
   max-width: 600px;
@@ -16,4 +21,35 @@ footer {
   font-size: 13px;
   text-align: center;
   color: rgba(64, 58, 64, 0.6);
+}
+ul {
+  list-style: none;
+  padding: 0px;
+}
+.Temperature {
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(32, 33, 36, 0.6);
+}
+img {
+  width: 100px;
+}
+.City {
+  font-size: 30px;
+  color: rgb(32, 33, 36, 0.6);
+  font-weight: bold;
+}
+.Unit {
+  font-size: 20px;
+  color: rgb(32, 33, 36, 0.6);
+  position: relative;
+  top: -20px;
+}
+.btn {
+  background-color: rgb(96, 8, 105, 0.8);
+  color: rgb(244, 241, 244);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }

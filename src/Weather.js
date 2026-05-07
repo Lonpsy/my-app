@@ -14,27 +14,24 @@ export default function Weather() {
             />
           </div>{" "}
           <div className="col-3">
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary w-100"
-            />
+            <input type="submit" value="Search" className=" btn w-100" />
           </div>
         </div>
       </form>{" "}
-      <h1 className="col-3 mt-3">London</h1>{" "}
+      <div className=" City col-3">London</div>{" "}
       <ul className="col-3">
         <li>Monday 10:00am</li>
         <li>Sunny </li>
+        <img
+          src="https://www.gstatic.com/weather/conditions/v1/svg/partly_cloudy_light.svg"
+          alt="weather-emoji"
+        />{" "}
       </ul>
       <ul className="row">
         <li className="col-3">
           {" "}
-          <img
-            src="https://www.gstatic.com/weather/conditions/v1/svg/partly_cloudy_light.svg"
-            alt="weather-emoji"
-          />{" "}
-          <h2 className="col-6">13°C</h2>
+          <span className="col-6 Temperature">13</span>
+          <span className="Unit">°C</span>
         </li>{" "}
         <div className="col 9 ">
           <div>Precipitation: 3%</div> <div>Humidity: 36%</div>{" "}
