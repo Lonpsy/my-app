@@ -45,10 +45,18 @@ img {
   position: relative;
   top: -20px;
 }
-.btn {
+.allButtons {
   background-color: rgb(96, 8, 105, 0.8);
   color: rgb(244, 241, 244);
   border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.allButtons:hover {
+  background-color: rgb(244, 241, 244);
+  color: rgba(96, 8, 105, 0.8);
+  border: 1px solid rgba(96, 8, 105, 0.8);
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
