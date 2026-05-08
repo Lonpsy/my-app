@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -18,6 +19,10 @@ export default function Weather(props) {
       date: new Date(response.data.time * 1000),
     });
   }
+  function updateCity(event) {
+    event.preventDefault();
+    setCity(event.target.value);
+  }
   if (weatherData.ready) {
     return (
       <div className="WeatherArea">
@@ -25,6 +30,7 @@ export default function Weather(props) {
           <div className="row">
             <div className="col-9">
               <input
+                onChange={updateCity}
                 type="search"
                 className="form-control"
                 placeholder="Search for a city temperature..."
@@ -39,9 +45,11 @@ export default function Weather(props) {
             </div>
           </div>
         </form>{" "}
-        <div className=" City col-3">{props.defaultCity}</div>{" "}
+        <div className=" City col-3">{city}</div>{" "}
         <ul className="col-3">
-          <li>Monday 10:00am</li>
+          <li>
+            <FormattedDate date={weatherData.date} />
+          </li>
           <li>{weatherData.description}</li>
           <img src={weatherData.iconUrl} alt="weather-emoji" />{" "}
         </ul>
@@ -61,7 +69,7 @@ export default function Weather(props) {
     );
   } else {
     let apiKey = "da7a1b3d460dbtbf7b304o1bb99604f1";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading...";
   }
