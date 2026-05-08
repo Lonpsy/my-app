@@ -8,7 +8,7 @@ export default function App() {
       {" "}
       <div className="container">
         {" "}
-        <h1>React-weather-app-project</h1> <Weather />
+        <h1>React-weather-app-project</h1> <Weather defaultCity="Gothenburg" />
         <footer>
           This project Coded by{" "}
           <a
