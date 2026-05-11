@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./Weather.css";
+import "./WeatherInfor.js";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
+import WeatherInfor from "./WeatherInfor";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.city,
@@ -19,6 +19,12 @@ export default function Weather(props) {
       date: new Date(response.data.time * 1000),
     });
   }
+  function handleSearch(event) {
+    event.preventDefault();
+    let apiKey = "da7a1b3d460dbtbf7b304o1bb99604f1";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
   function updateCity(event) {
     event.preventDefault();
     setCity(event.target.value);
@@ -26,7 +32,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="WeatherArea">
-        <form className="mb-3">
+        <form className="mb-3" onSubmit={handleSearch}>
           <div className="row">
             <div className="col-9">
               <input
@@ -45,32 +51,10 @@ export default function Weather(props) {
             </div>
           </div>
         </form>{" "}
-        <div className=" City col-3">{city}</div>{" "}
-        <ul className="col-3">
-          <li>
-            <FormattedDate date={weatherData.date} />
-          </li>
-          <li>{weatherData.description}</li>
-          <img src={weatherData.iconUrl} alt="weather-emoji" />{" "}
-        </ul>
-        <ul className="row">
-          <li className="col-3">
-            {" "}
-            <span className="col-6 Temperature">{weatherData.temperature}</span>
-            <span className="Unit">°C</span>
-          </li>{" "}
-          <div className="col-9 ">
-            <div>Precipitation: 3%</div>{" "}
-            <div>Humidity: {weatherData.humidity}%</div>{" "}
-            <div>Wind: {weatherData.wind} m/s</div>
-          </div>
-        </ul>
+        <WeatherInfor data={weatherData} />
       </div>
     );
   } else {
-    let apiKey = "da7a1b3d460dbtbf7b304o1bb99604f1";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
     return "Loading...";
   }
 }
