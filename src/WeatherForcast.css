@@ -1,0 +1,22 @@
+.forecast-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.forecast-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.forecast-temperatures {
+  gap: 8px;
+}
+.forecast-temperature-max {
+  font-size: 18px;
+  font-weight: bold;
+}
+.forecast-temperature-min {
+  font-size: 18px;
+  color: rgb(32, 33, 36, 0.6);
+}
