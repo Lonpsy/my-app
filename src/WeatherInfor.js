@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import DisplayUnit from "./DisplayUnit";
 
 export default function WeatherInfor(props) {
   return (
@@ -15,8 +16,7 @@ export default function WeatherInfor(props) {
       <ul className="row">
         <li className="col-3">
           {" "}
-          <span className="col-6 Temperature">{props.data.temperature}</span>
-          <span className="Unit">°C</span>
+          <DisplayUnit data={props.data} />
         </li>{" "}
         <div className="col-9 ">
           <div>Precipitation: 3%</div>{" "}
