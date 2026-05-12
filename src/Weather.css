@@ -61,3 +61,11 @@ img {
   border-radius: 5px;
   cursor: pointer;
 }
+.activeUnit {
+  font-weight: bold;
+  color: rgb(32, 33, 36, 0.9);
+}
+.passiveUnit {
+  font-weight: normal;
+  color: rgb(32, 33, 36, 0.4);
+}

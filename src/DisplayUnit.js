@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./WeatherInfor.js";
+import "./Weather.css";
 
 export default function DisplayUnit(props) {
   const [temperatureUnit, setTemperatureUnit] = useState("celsius");
@@ -29,10 +30,26 @@ export default function DisplayUnit(props) {
     <div>
       <span className="col-6 Temperature">{temperature}</span>
       <span className="Unit">
-        <a href="/" className="text-decoration-none" onClick={showCelsius}>
+        <a
+          href="/"
+          className={
+            temperatureUnit === "celsius"
+              ? "text-decoration-none activeUnit"
+              : "text-decoration-none passiveUnit"
+          }
+          onClick={showCelsius}
+        >
           °C |
         </a>{" "}
-        <a href="/" className="text-decoration-none" onClick={showFahrenheit}>
+        <a
+          href="/"
+          className={
+            temperatureUnit === "fahrenheit"
+              ? "text-decoration-none activeUnit"
+              : "text-decoration-none passiveUnit"
+          }
+          onClick={showFahrenheit}
+        >
           °F
         </a>
       </span>
