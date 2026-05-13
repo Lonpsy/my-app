@@ -1,9 +1,3 @@
-.forecast-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
 .forecast-icon {
   font-size: 32px;
   line-height: 1;

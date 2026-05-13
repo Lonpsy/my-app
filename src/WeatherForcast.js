@@ -21,11 +21,20 @@ export default function WeatherForcast(props) {
   }
 
   if (loaded) {
-    console.log(forecast);
-
+    console.log(forecast.daily);
     return (
-      <div className="WeatherForcast">
-        <ForecastData data={forecast} />
+      <div className="WeatherForcast row">
+        {forecast.daily.map(function (dailyForecast, index) {
+          if (index < 4) {
+            return (
+              <div className="col">
+                <ForecastData data={dailyForecast} key={index} />
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })}
       </div>
     );
   } else {
