@@ -21,7 +21,6 @@ export default function WeatherForcast(props) {
   }
 
   if (loaded) {
-    console.log(forecast.daily);
     return (
       <div className="WeatherForcast row">
         {forecast.daily.map(function (dailyForecast, index) {
