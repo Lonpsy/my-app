@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./WeatherForcast.css";
 import axios from "axios";
+import ForecastData from "./ForecastData";
 
 export default function WeatherForcast(props) {
   const [loaded, setLoaded] = useState(false);
@@ -21,22 +22,10 @@ export default function WeatherForcast(props) {
 
   if (loaded) {
     console.log(forecast);
-    let minTemperature = Math.round(forecast.daily[0].temperature.minimum);
-    let maxTemperature = Math.round(forecast.daily[0].temperature.maximum);
-    let iconUrl = forecast.daily[0].condition.icon_url;
+
     return (
       <div className="WeatherForcast">
-        <ul className=" forecast-row row">
-          <li>Mon </li>
-          <li className="forecast-icon">
-            {" "}
-            <img src={iconUrl} alt="weather-emoji" />{" "}
-          </li>{" "}
-          <li className="forecast-temperatures">
-            <span className="forecast-temperature-max">{maxTemperature}°</span>
-            <span className="forecast-temperature-min">{minTemperature}°</span>
-          </li>
-        </ul>
+        <ForecastData data={forecast} />
       </div>
     );
   } else {
